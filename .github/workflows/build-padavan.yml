@@ -31,7 +31,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev
     - name: Clone source code
       run: |
-        sudo git clone --depth=1 https://github.com/3113911626/rt-n56u /opt/rt-n56u
+        sudo git clone --depth=1 https://github.com/3113911626/rt-n56u.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sudo ./dl_toolchain.sh
         sudo mkdir -p /opt/images/
@@ -51,5 +51,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-packages
+        name: K2P-nano5.0
         path: /opt/images
