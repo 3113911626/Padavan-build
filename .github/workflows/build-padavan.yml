@@ -50,16 +50,13 @@ jobs:
         ################################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
         ################################################################################################
-        sed -i '#CONFIG_FIRMWARE_CPU_900MHZ=y' .config #删除配置项MENTOHUST
-        sed -i '#CONFIG_FIRMWARE_CPU_SLEEP=y' .config #删除配置项MENTOHUST
-        sed -i 'CONFIG_FIRMWARE_INCLUDE_QOS=n' .config #删除配置项MENTOHUST
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_QOS/d' .config #删除配置项MENTOHUST
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
         echo "CONFIG_FIRMWARE_CPU_900MHZ=y" >> .config #MENTOHUST
         echo "CONFIG_FIRMWARE_CPU_SLEEP=y" >> .config #MENTOHUST
         echo "CONFIG_FIRMWARE_INCLUDE_QOS=y" >> .config #MENTOHUST
-        echo "CONFIG_FIRMWARE_CPU_900MHZ=y" >> .config #MENTOHUST
         #########################################################################################
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
         #格式如下：
